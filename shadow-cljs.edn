@@ -1,0 +1,19 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src/"]
+
+ :log
+ {:level :debug}
+
+ :dependencies
+ [[org.clojars.flowyourmoney/malli-ts "0.3.0-SNAPSHOT"]]
+
+ :launcher-override
+ "launcher.jar"
+
+ :builds
+ {:default
+  {:target :node-script
+   :output-to "out/index.js"
+   :output-dir "out/"
+   :main uniradar-backend.main/init}}}

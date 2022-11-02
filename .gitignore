@@ -15,3 +15,6 @@ pom.xml.asc
 .calva/
 .cache/
 .clj-kondo/
+node_modules/
+out/
+.shadow-cljs/
