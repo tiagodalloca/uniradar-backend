@@ -1,7 +1,7 @@
 (ns uniradar-backend.main
   (:require ["express" :as express]))
 
-(def port 3000)
+(def port (or (-> js/process .-env .-PORT) 3000))
 
 (defonce app*
   (atom nil))
