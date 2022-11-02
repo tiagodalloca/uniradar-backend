@@ -1,6 +1,9 @@
 # [START cloudbuild_npm_node]
 steps:
 # Install dependencies
+- name: clojure:tools-deps
+  entrypoint: clj
+  args: ['--version']
 - name: node
   entrypoint: npm
   args: ['install']
