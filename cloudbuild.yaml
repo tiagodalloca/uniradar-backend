@@ -1,20 +1,25 @@
 # [START cloudbuild_npm_node]
 steps:
-# Install dependencies
-- name: clojure:tools-deps
-  entrypoint: clj
-  args: ['--version']
-- name: node
-  entrypoint: npm
-  args: ['install']
-# Run tests
-- name: node
-  entrypoint: npm
-  args: ['test']
-# Run custom commands
-- name: node
-  entrypoint: npm
-  args: ['run', 'build']
+  # Build the container image
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      ["build", "-t", "gcr.io/$PROJECT_ID/uniradar-backend:$COMMIT_SHA", "."]
+  # Push the container image to Container Registry
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/uniradar-backend:$COMMIT_SHA"]
+  # Deploy container image to Cloud Run
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: gcloud
+    args:
+      - "run"
+      - "deploy"
+      - "uniradar-backend"
+      - "--image"
+      - "gcr.io/$PROJECT_ID/uniradar-backend:$COMMIT_SHA"
+      - "--region"
+      - "southamerica-east1"
+images:
+  - "gcr.io/$PROJECT_ID/uniradar-backend:$COMMIT_SHA"
 options:
   logging: CLOUD_LOGGING_ONLY
 # [END cloudbuild_npm_node]
