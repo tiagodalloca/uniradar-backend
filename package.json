@@ -6,7 +6,7 @@
     "scripts": {
         "start": "node ./out/index.js",
         "test": "echo \"No tests.\"",
-        "build": "node ./node_modules/shadow-cljs/cli/runner.js compile default"
+        "build": "node ./node_modules/shadow-cljs/cli/runner.js release default"
     },
     "author": "Tiago Dall'Oca",
     "dependencies": {
