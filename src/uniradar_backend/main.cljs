@@ -14,7 +14,7 @@
   (reset! app* (express))
   (doto ^js @app*
     (.get "/" (fn [req res]
-                (.send res "Hello World!")))
+                (.send res "Hello World! (development)")))
     (-> (.listen port (fn []
                         (println "Started listening on port " port)))
         (some->> (reset! server*)))))
