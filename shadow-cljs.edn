@@ -1,6 +1,6 @@
 ;; shadow-cljs configuration
 {:source-paths
- ["src/"]
+ ["src/" "development/src/"]
 
  :log
  {:level :debug}
@@ -16,4 +16,10 @@
   {:target :node-script
    :output-to "out/index.js"
    :output-dir "out/"
-   :main uniradar-backend.main/init}}}
+   :main uniradar-backend.main/init}
+  :dev
+  {:target :node-script
+   :output-to "out/dev/index.js"
+   :output-dir "out/dev/"
+   :main uniradar-backend.development.main/init
+   :compilation-options {:optmization :whitespace}}}}
