@@ -53,7 +53,7 @@
                      {:registry (select-keys registry required)}
                      nil)]
        (assoc registry
-              (->> var meta :name (keyword (namespace ::x)))
+              (->> var meta :name str (keyword (namespace ::x)))
               (if (some? options)
                 [:schema options schema]
                 schema))))
