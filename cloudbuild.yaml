@@ -14,7 +14,5 @@ steps:
       - "gcr.io/$PROJECT_ID/uniradar-backend-$BRANCH_NAME:$COMMIT_SHA"
       - "--region"
       - "southamerica-east1"
-images:
-  - "gcr.io/$PROJECT_ID/uniradar-backend-$BRANCH_NAME:$COMMIT_SHA"
 options:
   logging: CLOUD_LOGGING_ONLY
