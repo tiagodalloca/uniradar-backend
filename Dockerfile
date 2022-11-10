@@ -1,8 +1,10 @@
 FROM clojure:temurin-19-tools-deps
 
 WORKDIR /app
-COPY deps.edn src build ./
+COPY . ./
 
+RUN clojure -P
+RUN clojure -A:build -P
 RUN clojure -T:build jar > ./ENV_CLASSPATH
 RUN find ./target -type f -name "*.jar" > ./ENV_JAR
 
