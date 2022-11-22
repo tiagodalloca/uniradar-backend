@@ -14,3 +14,7 @@
 (defmethod ig/init-key :http/handler [_ deps]
   (http-handler/get-handler deps))
 
+#_{:clj-kondo/ignore [:unused-binding]}
+(defmethod ig/init-key :db/instance [_ init-val]
+  (atom init-val))
+

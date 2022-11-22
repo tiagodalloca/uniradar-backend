@@ -4,7 +4,8 @@
         metosin/malli {:mvn/version "0.8.9"}
         metosin/reitit {:mvn/version "0.5.18"}
         ring/ring-jetty-adapter {:mvn/version "1.9.5"}
-        clj-http/clj-http {:mvn/version "3.12.3"}}
+        clj-http/clj-http {:mvn/version "3.12.3"}
+        ring-cors/ring-cors {:mvn/version "0.1.13"}}
 
  :paths ["src" "resources"]
 
