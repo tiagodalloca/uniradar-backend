@@ -1,4 +1,5 @@
 {:http/server {:opts {:port #long #or [#env PORT 8989]}
-               :handler #ig/ref :http/handler}
+               :handler #ig/ref :http/handler
+               :db/instance #ig/ref :db/instance}
  :http/handler {}
  :db/instance {}}
